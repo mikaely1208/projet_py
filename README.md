@@ -11,12 +11,6 @@ Ce dépot a pour but de regrouper le projet.
 Enregistrez et mettre a jour sont travail régulièrement :)
 
 
-### Tutoriel pratique pour le code
-
-.
-.
-.
-
 ## Documentation
 
 Git 
