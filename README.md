@@ -33,4 +33,4 @@ Icones Heros - Eliott
 Tubes - Mikaely,Eliott  
 Choix du niveau par personnage  
 Fond d'écran = a chercher  
-Gravité constante  
+Gravité constantes  
