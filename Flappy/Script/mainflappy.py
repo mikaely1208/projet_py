@@ -113,38 +113,57 @@ Pepito est le "héros" de ce jeu.  Le joueur peut le faire grimper
 
 
 class PipePair(pygame.sprite.Sprite):
-
+    WIDTH = 80
+    PIECE_HEIGHT = 32
+    ADD_INTERVAL = 3000
 
     def __init__(self, pipe_end_img, pipe_body_img):
-        self.score_counted:False
-        self.width = width
-        self.height = height
-        self.display = pygame.display.set_mode((self.width, self.height))
-        pygame.display.set_caption("Caption")
-    def imgg(self):
-        img = pygame.image.load_basic(game_images)
-        self.display.blit(img, (0,0))
+        self.x = float(WIN_WIDTH - 1)
+        self.score_counted = False
+
+        self.image = pygame.Surface((PipePair.WIDTH, WIN_HEIGHT), SRCALPHA)
+        self.image.convert()
+        self.image.fill((0, 0, 0, 0))
+        total_pipe_body_pieces = int(
+            (WIN_HEIGHT -
+             3 * Bird.HEIGHT -  # passage oiseau taille
+             3 * PipePair.PIECE_HEIGHT) /
+            PipePair.PIECE_HEIGHT
+        )
+    for i in range(1, self.bottom_pieces + 1):
+        piece_pos(142, 0),
+        self.image(pipe_body_img)
+
+
+
+
+    for j in range(1, self.top_pieces):
+        piece_pos(142, 512),
+        self.image(pipe_body_img)
+
+
+
+
 
 
 def load_images():
 
 
-    def load_image(game_images):
+    def load_image(images):
 
     #chercher les images correspondantes et les mettre au bon endroits bon dossier tt ca
-        game_images = os.path.join(os.path.dirname(__file__),
-                                 'images', img_file_name)
-        img = pygame.image.load(game_images)
+        images = os.path.join(os.path.dirname(__file__),
+        'images', images)
+        img = pygame.image.load(images)
         img.convert()
         return img
 
-    return {'background': load_image('fond-decran.jpg'),
-            'pipe-end': load_image('tuyau nul a voir.jpg'),
-            'pipe-body': load_image('tuyau nul a voir.jpg'),
-            # images for animating the flapping bird -- animated GIFs are
-            # not supported in pygame
-            'bird-wingup': load_image('iron man latéral.jpg'),
-            'bird-wingdown': load_image('iron man latéral.jpg')}
+    return {'background': load_image('background.jpg'),
+            'pipe-end': load_image('tuyauba.png'),
+            'pipe-body': load_image('tuyauo.png'),
+            # image_flappy
+            'bird-wingup': load_image('ironTOP.png'),
+            'bird-wingdown': load_image('ironBottom.png')}
 
 
 def frames_to_msec(frames, fps=FPS):
