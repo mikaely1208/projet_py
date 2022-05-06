@@ -113,55 +113,98 @@ Pepito est le "héros" de ce jeu.  Le joueur peut le faire grimper
 
 
 class PipePair(pygame.sprite.Sprite):
+
+
     WIDTH = 80
     PIECE_HEIGHT = 32
     ADD_INTERVAL = 3000
 
     def __init__(self, pipe_end_img, pipe_body_img):
+
         self.x = float(WIN_WIDTH - 1)
         self.score_counted = False
 
         self.image = pygame.Surface((PipePair.WIDTH, WIN_HEIGHT), SRCALPHA)
-        self.image.convert()
+        self.image.convert()   # speeds up blitting
         self.image.fill((0, 0, 0, 0))
         total_pipe_body_pieces = int(
-            (WIN_HEIGHT -
-             3 * Bird.HEIGHT -  # passage oiseau taille
-             3 * PipePair.PIECE_HEIGHT) /
-            PipePair.PIECE_HEIGHT
+            (WIN_HEIGHT -                  # fill window from top to bottom
+             3 * Bird.HEIGHT -             # make room for bird to fit through
+             3 * PipePair.PIECE_HEIGHT) /  # 2 end pieces + 1 body piece
+            PipePair.PIECE_HEIGHT          # to get number of pipe pieces
         )
-    for i in range(1, self.bottom_pieces + 1):
-        piece_pos(142, 0),
-        self.image(pipe_body_img)
+        self.bottom_pieces = randint(1, total_pipe_body_pieces)
+        self.top_pieces = total_pipe_body_pieces - self.bottom_pieces
 
+        # bottom pipe
+        for i in range(1, self.bottom_pieces + 1):
+            piece_pos = (0, WIN_HEIGHT - i*PipePair.PIECE_HEIGHT)
+            self.image.blit(pipe_body_img, piece_pos)
+        bottom_pipe_end_y = WIN_HEIGHT - self.bottom_height_px
+        bottom_end_piece_pos = (0, bottom_pipe_end_y - PipePair.PIECE_HEIGHT)
+        self.image.blit(pipe_end_img, bottom_end_piece_pos)
 
+        # top pipe
+        for i in range(self.top_pieces):
+            self.image.blit(pipe_body_img, (0, i * PipePair.PIECE_HEIGHT))
+        top_pipe_end_y = self.top_height_px
+        self.image.blit(pipe_end_img, (0, top_pipe_end_y))
 
+        # compensate for added end pieces
+        self.top_pieces += 1
+        self.bottom_pieces += 1
 
-    for j in range(1, self.top_pieces):
-        piece_pos(142, 512),
-        self.image(pipe_body_img)
+        # for collision detection
+        self.mask = pygame.mask.from_surface(self.image)
 
+    @property
+    def top_height_px(self):
 
+        return self.top_pieces * PipePair.PIECE_HEIGHT
 
+    @property
+    def bottom_height_px(self):
 
+        return self.bottom_pieces * PipePair.PIECE_HEIGHT
+
+    @property
+    def visible(self):
+
+        return -PipePair.WIDTH < self.x < WIN_WIDTH
+
+    @property
+    def rect(self):
+        return Rect(self.x, 0, PipePair.WIDTH, PipePair.PIECE_HEIGHT)
+
+    def update(self, delta_frames=1):
+
+        self.x -= ANIMATION_SPEED * frames_to_msec(delta_frames)
+
+    def collides_with(self, bird):
+
+       ''' Arguments:
+        bird: The Bird which should be tested for collision with this
+            PipePair.
+        '''
 
 
 def load_images():
 
 
-    def load_image(images):
+    def load_image(img_file_name):
 
     #chercher les images correspondantes et les mettre au bon endroits bon dossier tt ca
-        images = os.path.join(os.path.dirname(__file__),
-        'images', images)
-        img = pygame.image.load(images)
+        file_name = os.path.join(os.path.dirname(__file__),
+                                 'images', img_file_name)
+        img = pygame.image.load(file_name)
         img.convert()
         return img
 
     return {'background': load_image('background.jpg'),
             'pipe-end': load_image('tuyauba.png'),
             'pipe-body': load_image('tuyauo.png'),
-            # image_flappy
+            # images for animating the flapping bird -- animated GIFs are
+            # not supported in pygame
             'bird-wingup': load_image('ironTOP.png'),
             'bird-wingdown': load_image('ironBottom.png')}
 
