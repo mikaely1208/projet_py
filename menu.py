@@ -1,6 +1,7 @@
 import pygame
 import pygame_gui
-from jeu_morpion import main_morpion
+
+
 
 class Menu:
 
@@ -44,14 +45,14 @@ class Menu:
 
                 if event.type == pygame_gui.UI_BUTTON_PRESSED:
                     if event.ui_element == morpion_button:
-                        from jeu_morpion import main_morpion
+                        from jeu_morpion.main_morpion import Jeu
                         pygame.init()
                         Jeu().fonction_principale()
                         pygame.quit()
 
                 if event.type == pygame_gui.UI_BUTTON_PRESSED:
                     if event.ui_element == demineur_button:
-                        from démineur import main_demineur
+                        from démineur.main_demineur import Grid
                         gameLoop()
                         pygame.quit()
                         quit()
