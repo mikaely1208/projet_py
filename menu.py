@@ -10,25 +10,25 @@ class Menu:
         pygame.init()
         pygame.display.set_caption('Jeux')
         window_surface = pygame.display.set_mode((880, 450))
-        background = pygame.Surface((1915, 1080))
-        background.fill(pygame.Color('Red'))
+        background = pygame.Surface((1900, 1080))
+        background.fill(pygame.Color('Black'))
         manager = pygame_gui.UIManager((1915, 1028))
 
         # creation des bouttons :
 
-        morpion_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((25, 30), (250, 125)),
+        morpion_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((150, 30), (250, 125)),
                                                       text='Morpion',
                                                       manager=manager)
 
-        demineur_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((325, 30), (250, 125)),
+        demineur_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((500, 30), (250, 125)),
                                                    text='Demineur',
                                                    manager=manager)
 
-        P4_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((625, 30), (250, 125)),
+        P4_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((500, 250), (250, 125)),
                                                    text='Puissance 4',
                                                    manager=manager)
 
-        flappy_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((25, 190), (250, 125)),
+        flappy_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((150, 250), (250, 125)),
                                                     text='Flappy Bird',
                                                     manager=manager)
 
