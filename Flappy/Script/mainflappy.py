@@ -9,8 +9,10 @@ from pygame.locals import *
 
 FPS = 60
 ANIMATION_SPEED = 0.18
-WIN_WIDTH = 284 * 2
-WIN_HEIGHT = 512
+WIN_WIDTH = 1024
+WIN_HEIGHT = 600
+
+
 
 
 class Bird(pygame.sprite.Sprite):
@@ -115,8 +117,8 @@ Pepito est le "héros" de ce jeu.  Le joueur peut le faire grimper
 class PipePair(pygame.sprite.Sprite):
 
 
-    WIDTH = 80
-    PIECE_HEIGHT = 32
+    WIDTH = 100
+    PIECE_HEIGHT = 50
     ADD_INTERVAL = 3000
 
     def __init__(self, pipe_end_img, pipe_body_img):
@@ -263,7 +265,7 @@ def main():
         if pipe_collision or 0 >= bird.y or bird.y >= WIN_HEIGHT - Bird.HEIGHT:
             done = True
 
-        for x in (0, WIN_WIDTH / 2):
+        for x in (0, WIN_WIDTH ):
             display_surface.blit(images['background'], (x, 0))
 
         while pipes and not pipes[0].visible:
