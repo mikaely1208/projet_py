@@ -53,9 +53,14 @@ class Menu:
                 if event.type == pygame_gui.UI_BUTTON_PRESSED:
                     if event.ui_element == demineur_button:
                         from démineur.main_demineur import Grid
-                        gameLoop()
+                        #gameLoop()
                         pygame.quit()
                         quit()
+
+                if event.type == pygame_gui.UI_BUTTON_PRESSED:
+                    if event.ui_element == flappy_button:
+                        from flappy.Script.mainflappy import main
+                        main()
 
 
                 manager.process_events(event)
