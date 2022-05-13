@@ -39,7 +39,7 @@ def choix_col(x, y):
 def verification_Puissance4():
     test2 = False
 
-    # test d'un P4 horizontal
+    # P4 horizontal
     i = j = 0
     while (not (i == 5 and j == 3)):
         if (Gr[i][j] == Gr[i][j + 1] and Gr[i][j] == Gr[i][j + 2] \
@@ -51,7 +51,7 @@ def verification_Puissance4():
         else:
             j = j + 1
 
-    # test d'un P4 vertical
+    # P4 vertical
     i = j = 0
     while (not (i == 2 and j == 6)):
         if (Gr[i][j] == Gr[i + 1][j] and Gr[i][j] == Gr[i + 2][j] \
@@ -63,7 +63,7 @@ def verification_Puissance4():
         else:
             j = j + 1
 
-    # test d'un P4 diagonal vers la droite
+    # P4 diagonal vers la droite
     i = j = 0
     while (not (i == 2 and j == 3)):
         if (Gr[i][j] == Gr[i + 1][j + 1] and Gr[i][j] == Gr[i + 2][j + 2] \
@@ -75,7 +75,7 @@ def verification_Puissance4():
         else:
             j = j + 1
 
-    # test d'un P4 diagonal vers la gauche
+    # P4 diagonal vers la gauche
     i = 0
     j = 3
     while (not (i == 2 and j == 6)):
@@ -97,7 +97,7 @@ def choix_lig():
     # Cette fonction retourne la ligne vide correspondant a la colonne demandee
     lig = 0
     for i in range(1, 6):
-        if (Gr[i][col] == 0 and Gr[i - 1][col] != 0):
+        if (Gr[i][lig] == 0 and Gr[i - 1][lig] != 0):
             lig = i
     return lig
 
