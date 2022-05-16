@@ -42,7 +42,7 @@ def verification_Puissance4():
     # P4 horizontal
     i = j = 0
     while (not (i == 5 and j == 3)):
-        if (Gr[i][j] == Gr[i][j + 1] and Gr[i][j] == Gr[i][j + 2] \
+        if (Gr[i][j] == Gr[i][j + 1] and Gr[i][j] == Gr[i][j + 2]
                 and Gr[i][j] == Gr[i][j + 3] and Gr[i][j] == joueur):
             test2 = True
         if (j == 3):
@@ -54,7 +54,7 @@ def verification_Puissance4():
     # P4 vertical
     i = j = 0
     while (not (i == 2 and j == 6)):
-        if (Gr[i][j] == Gr[i + 1][j] and Gr[i][j] == Gr[i + 2][j] \
+        if (Gr[i][j] == Gr[i + 1][j] and Gr[i][j] == Gr[i + 2][j]
                 and Gr[i][j] == Gr[i + 3][j] and Gr[i][j] == joueur):
             test2 = True
         if (j == 6):
@@ -66,7 +66,7 @@ def verification_Puissance4():
     # P4 diagonal vers la droite
     i = j = 0
     while (not (i == 2 and j == 3)):
-        if (Gr[i][j] == Gr[i + 1][j + 1] and Gr[i][j] == Gr[i + 2][j + 2] \
+        if (Gr[i][j] == Gr[i + 1][j + 1] and Gr[i][j] == Gr[i + 2][j + 2]
                 and Gr[i][j] == Gr[i + 3][j + 3] and Gr[i][j] == joueur):
             test2 = True
         if (j == 3):
@@ -79,7 +79,7 @@ def verification_Puissance4():
     i = 0
     j = 3
     while (not (i == 2 and j == 6)):
-        if (Gr[i][j] == Gr[i + 1][j - 1] and Gr[i][j] ==GrM[i + 2][j - 2] \
+        if (Gr[i][j] == Gr[i + 1][j - 1] and Gr[i][j] == Gr[i + 2][j - 2]
                 and Gr[i][j] == Gr[i + 3][j - 3] and Gr[i][j] == joueur):
             test2 = True
         if (j == 6):
@@ -139,7 +139,7 @@ while (not Puissance4 and NbrJetons < 42):
             joueur = Order()
             colonne = choix_col(x, y)
             # On modifie les variables pour tenir compte du jeton depose.
-            Gr[choix_lig()][col] = joueur
+            Gr[choix_lig()][colonne] = joueur
             NbrJetons = NbrJetons + 1
             Puissance4 = verification_Puissance4()
             affichage(Gr)

@@ -127,13 +127,13 @@ class PipePair(pygame.sprite.Sprite):
         self.score_counted = False
 
         self.image = pygame.Surface((PipePair.WIDTH, WIN_HEIGHT), SRCALPHA)
-        self.image.convert()   # speeds up blitting
+        self.image.convert()
         self.image.fill((0, 0, 0, 0))
         total_pipe_body_pieces = int(
-            (WIN_HEIGHT -                  # fill window from top to bottom
-             3 * Bird.HEIGHT -             # make room for bird to fit through
-             3 * PipePair.PIECE_HEIGHT) /  # 2 end pieces + 1 body piece
-            PipePair.PIECE_HEIGHT          # to get number of pipe pieces
+            (WIN_HEIGHT -
+             3 * Bird.HEIGHT -
+             3 * PipePair.PIECE_HEIGHT) /
+            PipePair.PIECE_HEIGHT
         )
         self.bottom_pieces = randint(1, total_pipe_body_pieces)
         self.top_pieces = total_pipe_body_pieces - self.bottom_pieces
@@ -184,11 +184,10 @@ class PipePair(pygame.sprite.Sprite):
 
     def collides_with(self, bird):
 
-       ''' Arguments:
-        bird: The Bird which should be tested for collision with this
-            PipePair.
-        '''
-
+        ''' Arguments:
+                bird: The Bird which should be tested for collision with this
+                    PipePair.
+                '''
 
 def load_images():
 
@@ -205,8 +204,6 @@ def load_images():
     return {'background': load_image('background.jpg'),
             'pipe-end': load_image('tuyauba.png'),
             'pipe-body': load_image('tuyauo.png'),
-            # images for animating the flapping bird -- animated GIFs are
-            # not supported in pygame
             'bird-wingup': load_image('ironTOP.png'),
             'bird-wingdown': load_image('ironBottom.png')}
 

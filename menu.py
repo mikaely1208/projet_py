@@ -1,3 +1,5 @@
+import sys
+
 import pygame
 import pygame_gui
 
@@ -61,6 +63,10 @@ class Menu:
                     if event.ui_element == flappy_button:
                         from flappy.Script.mainflappy import main
                         main()
+
+                if event.type == pygame_gui.UI_BUTTON_PRESSED:
+                    if event.ui_element == P4_button:
+                        from puissance4 import p4
 
 
                 manager.process_events(event)
