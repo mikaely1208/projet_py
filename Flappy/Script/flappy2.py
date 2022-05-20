@@ -68,34 +68,34 @@ class Window(object):
     def main(self):
         loop = True
         # def oiseau localisation, taille, déplacement
-        larg_heros = 20
-        haut_heros = 20
+        larg_heros = 30
+        haut_heros = 30
         self.X_heros = 100
         self.Y_heros = ((haut / 2) - int(haut_heros / 2.0))
         moov_X_heros = 0
         moov_Y_heros = 0
         esp_tube = 250
-        vit_tube = 1.5
+        vit_tube = 2.5
 
         #code premier pipe
-        esp = 200
+        esp = 150
         Tub_1x = 500
-        Tub_1y = 350
+        Tub_1y = 400
         Tub_1_larg = 50
         Tub_1_haut = haut
         # code second pipe
         Tub_2x = Tub_1x + esp_tube
-        Tub_2y = 390
+        Tub_2y = 259
         Tub_2_larg = 50
         Tub_2_haut = haut
         # code troisième pipe
         Tub_3x = Tub_2x + esp_tube
-        Tub_3y = 380
+        Tub_3y = 510
         Tub_3_larg = 50
         Tub_3_haut = haut
         # code quatrièmes pipe
         Tub_4x = Tub_3x + esp_tube
-        Tub_4y = 380
+        Tub_4y = 390
         Tub_4_larg = 50
         Tub_4_haut = haut
         # code cinquièmes pipe
@@ -105,12 +105,12 @@ class Window(object):
         Tub_5_haut = haut
         # code sixième pipe
         Tub_6x = Tub_5x + esp_tube
-        Tub_6y = 380
+        Tub_6y = 500
         Tub_6_larg = 50
         Tub_6_haut = haut
         # code septièmes pipe
         Tub_7x = Tub_6x + esp_tube
-        Tub_7y = 380
+        Tub_7y = 400
         Tub_7_larg = 50
         Tub_7_haut = haut
 
