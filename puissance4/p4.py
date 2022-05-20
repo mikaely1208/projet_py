@@ -24,20 +24,20 @@ def Order():
     return joueur
 
 
-def choix_col(x, y):
+def choix_col(x,y):
     # Cette fonction retourne la colonne demandee au joueur1
     # Tant que la valeur n'est pas acceptable, on demande la colonne a jouer
-    col = x - 16
-    col = col / 97
+    col = x-16
+    col = abs(col/97) 
     if col in range(0, 7):
-        for lig in range(8):
-            if Gr[lig][col] == 0: return col
+            if (Gr[5][col] == 0):
+               Puissance4=False
     return col
 
 
 
 def verification_Puissance4():
-    test2 = False
+    Puissance42 = False
 
     # P4 horizontal
     i = j = 0
@@ -97,7 +97,7 @@ def choix_lig():
     # Cette fonction retourne la ligne vide correspondant a la colonne demandee
     lig = 0
     for i in range(1, 6):
-        if (Gr[i][lig] == 0 and Gr[i - 1][lig] != 0):
+        if (Gr[i][colonne] == 0 and Gr[i - 1][colonne] != 0):
             lig = i
     return lig
 
@@ -137,8 +137,11 @@ while (not Puissance4 and NbrJetons < 42):
         if event.type == pygame.MOUSEBUTTONUP:
             x, y = pygame.mouse.get_pos()
             joueur = Order()
-            colonne = choix_col(x, y)
+            colonne = choix_col(x,y)
             # On modifie les variables pour tenir compte du jeton depose.
+            print(Gr)
+            print(joueur)
+            print(colonne)
             Gr[choix_lig()][colonne] = joueur
             NbrJetons = NbrJetons + 1
             Puissance4 = verification_Puissance4()
