@@ -1,9 +1,9 @@
 import sys
-
 import pygame
 import pygame_gui
 
 
+pygame.init()
 
 class Menu:
 
@@ -81,5 +81,6 @@ class Menu:
 
 if __name__ == '__main__':
     Menu().fonction_Menu()
+    pygame.QUIT()
 
 
