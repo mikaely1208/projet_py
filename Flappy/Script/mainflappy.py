@@ -213,9 +213,6 @@ def load_images():
         img.convert()
         return img
 
-    return {'background': load_image('images/background.jpg'),
-            # images for animating the flapping bird -- animated GIFs are
-            # not supported in pygame
             'bird-wingup': load_image('ironTOP.png'),
             'bird-wingdown': load_image('ironBottom.png')}
 
