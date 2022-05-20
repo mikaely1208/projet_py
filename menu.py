@@ -81,6 +81,6 @@ class Menu:
 
 if __name__ == '__main__':
     Menu().fonction_Menu()
-    pygame.QUIT()
+pygame.QUIT()
 
 

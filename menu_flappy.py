@@ -26,12 +26,12 @@ class Menu:
                                                    text='Amateur',
                                                    manager=manager)
 
-        Pro_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((500, 250), (250, 125)),
-                                                   text='Pro',
+        Train_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((500, 250), (250, 125)),
+                                                   text='Training',
                                                    manager=manager)
 
-        Train_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((150, 250), (250, 125)),
-                                                    text='Training',
+        Pro_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((150, 250), (250, 125)),
+                                                    text='Pro',
                                                     manager=manager)
 
 
@@ -47,18 +47,28 @@ class Menu:
 
                 if event.type == pygame_gui.UI_BUTTON_PRESSED:
                     if event.ui_element == Debutant_button:
+                        from flappy.Script.flappy1 import flappy1
+
 
 
                 if event.type == pygame_gui.UI_BUTTON_PRESSED:
                     if event.ui_element == Amateur_button:
-
-
-                if event.type == pygame_gui.UI_BUTTON_PRESSED:
-                    if event.ui_element == Train_button:
+                        from flappy.Script.flappy2 import flappy2
 
 
                 if event.type == pygame_gui.UI_BUTTON_PRESSED:
                     if event.ui_element == Pro_button:
+                        from flappy.Script.flappy3 import flappy3
+
+
+
+                if event.type == pygame_gui.UI_BUTTON_PRESSED:
+                    if event.ui_element == Train_button:
+                        from flappy.Script.flappy import flappy
+
+
+
+
 
 
                 manager.process_events(event)
