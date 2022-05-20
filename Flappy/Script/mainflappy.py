@@ -1,10 +1,14 @@
 import math
 import os
 from random import randint
-from collections import deque
+
 
 import pygame
 from pygame.locals import *
+
+red = (255, 0, 0)
+green = (0, 255, 0)
+blue = (0, 0, 255)
 
 
 FPS = 60
@@ -41,6 +45,15 @@ Pepito est le "héros" de ce jeu.  Le joueur peut le faire grimper
         pour effectuer une ascension complète.
     """
 
+    class FlappyBird(object):
+        def __init__(self, x, y, width, height):
+            self.x = x
+            self.y = y
+            self.width = width
+            self.height = height
+
+        def draw(self):
+            pygame.draw.rect(screen, red, (self.x, self.y, self.width, self.height))
     WIDTH = HEIGHT = 32
     SINK_SPEED = 0.18
     CLIMB_SPEED = 0.3
@@ -68,7 +81,73 @@ Pepito est le "héros" de ce jeu.  Le joueur peut le faire grimper
         self._img_wingup, self._img_wingdown = images
         self._mask_wingup = pygame.mask.from_surface(self._img_wingup)
         self._mask_wingdown = pygame.mask.from_surface(self._img_wingdown)
+        pipe_spacing = 350
+        pipe_speed = 1
+        space = 100
+        p1_x = 300
+        p1_y = 400
+        p1_w = 50
+        p1_h = HEIGHT
 
+        p2_x = p1_x + pipe_spacing
+        p2_y = 250
+        p2_w = 50
+        p2_h = HEIGHT
+
+        p3_x = p2_x + pipe_spacing
+        p3_y = 250
+        p3_w = 50
+        p3_h = HEIGHT
+
+        pipe1 = Pipes(p1_x, p1_y, p1_w, p1_h, space, pipe_speed, red)
+        pipe2 = Pipes(p2_x, p2_y, p2_w, p2_h, space, pipe_speed, green)
+        pipe3 = Pipes(p3_x, p3_y, p3_w, p3_h, space, pipe_speed, blue)
+        while loop:
+            for event in pygame.event.get():
+                # print(event)
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+
+        pipe1.draw_pipes()
+        pipe2.draw_pipes()
+        pipe3.draw_pipes()
+
+        pipe1.check_if()
+        pipe2.check_if()
+        pipe3.check_if()
+
+        p1_new_x = pipe1.pipe_move()
+        p2_new_x = pipe2.pipe_move()
+        p3_new_x = pipe3.pipe_move()
+
+
+
+        pygame.display.update()
+        clock.tick(FPS)
+
+    class Pipes(object):
+        def __init__(self, x, y, width, height, space, speed, color):
+            self.x = x
+            self.y = y
+            self.width = width
+            self.height = height
+            self.space = space
+            self.speed = speed
+            self.color = color
+
+        def draw_pipes(self):
+            pygame.draw.rect(screen, self.color, (self.x, self.y, self.width, self.height))
+            pygame.draw.rect(screen, self.color, (self.x, self.y - self.space - self.height, self.width, self.height))
+
+        def pipe_move(self):
+            self.x -= self.speed
+            return self.x
+
+
+        def check_if(self):
+            if self.x < 0:
+                self.x = 1000
     def update(self, delta_frames=1):
         """Mettre à jour la position de l'oiseau.
 
@@ -121,74 +200,6 @@ class PipePair(pygame.sprite.Sprite):
     PIECE_HEIGHT = 50
     ADD_INTERVAL = 3000
 
-    def __init__(self, pipe_end_img, pipe_body_img):
-
-        self.x = float(WIN_WIDTH - 1)
-        self.score_counted = False
-
-        self.image = pygame.Surface((PipePair.WIDTH, WIN_HEIGHT), SRCALPHA)
-        self.image.convert()   # speeds up blitting
-        self.image.fill((0, 0, 0, 0))
-        total_pipe_body_pieces = int(
-            (WIN_HEIGHT -                  # fill window from top to bottom
-             3 * Bird.HEIGHT -             # make room for bird to fit through
-             3 * PipePair.PIECE_HEIGHT) /  # 2 end pieces + 1 body piece
-            PipePair.PIECE_HEIGHT          # to get number of pipe pieces
-        )
-        self.bottom_pieces = randint(1, total_pipe_body_pieces)
-        self.top_pieces = total_pipe_body_pieces - self.bottom_pieces
-
-        # bottom pipe
-        for i in range(1, self.bottom_pieces + 1):
-            piece_pos = (0, WIN_HEIGHT - i*PipePair.PIECE_HEIGHT)
-            self.image.blit(pipe_body_img, piece_pos)
-        bottom_pipe_end_y = WIN_HEIGHT - self.bottom_height_px
-        bottom_end_piece_pos = (0, bottom_pipe_end_y - PipePair.PIECE_HEIGHT)
-        self.image.blit(pipe_end_img, bottom_end_piece_pos)
-
-        # top pipe
-        for i in range(self.top_pieces):
-            self.image.blit(pipe_body_img, (0, i * PipePair.PIECE_HEIGHT))
-        top_pipe_end_y = self.top_height_px
-        self.image.blit(pipe_end_img, (0, top_pipe_end_y))
-
-        # compensate for added end pieces
-        self.top_pieces += 1
-        self.bottom_pieces += 1
-
-        # for collision detection
-        self.mask = pygame.mask.from_surface(self.image)
-
-    @property
-    def top_height_px(self):
-
-        return self.top_pieces * PipePair.PIECE_HEIGHT
-
-    @property
-    def bottom_height_px(self):
-
-        return self.bottom_pieces * PipePair.PIECE_HEIGHT
-
-    @property
-    def visible(self):
-
-        return -PipePair.WIDTH < self.x < WIN_WIDTH
-
-    @property
-    def rect(self):
-        return Rect(self.x, 0, PipePair.WIDTH, PipePair.PIECE_HEIGHT)
-
-    def update(self, delta_frames=1):
-
-        self.x -= ANIMATION_SPEED * frames_to_msec(delta_frames)
-
-    def collides_with(self, bird):
-
-       ''' Arguments:
-        bird: The Bird which should be tested for collision with this
-            PipePair.
-        '''
-
 
 def load_images():
 
@@ -202,9 +213,7 @@ def load_images():
         img.convert()
         return img
 
-    return {'background': load_image('background.jpg'),
-            'pipe-end': load_image('tuyauba.png'),
-            'pipe-body': load_image('tuyauo.png'),
+    return {'background': load_image('images/background.jpg'),
             # images for animating the flapping bird -- animated GIFs are
             # not supported in pygame
             'bird-wingup': load_image('ironTOP.png'),
@@ -221,6 +230,11 @@ def msec_to_frames(milliseconds, fps=FPS):
     return fps * milliseconds / 1000.0
 
 
+if (self.bird_y <= (p1_y - space)) and (self.bird_y <= p1_y) and ((self.bird_x + bird_width) >= p1_new_x) and (
+        self.bird_x <= (p1_new_x + p1_w)):
+    print("collision")
+    break
+    exit(0)  # Just in case.
 def main():
 
     pygame.init()
@@ -236,60 +250,10 @@ def main():
     bird = Bird(50, int(WIN_HEIGHT/2 - Bird.HEIGHT/2), 2,
                 (images['bird-wingup'], images['bird-wingdown']))
 
-    pipes = deque()
 
-    frame_clock = 0
-    score = 0
-    done = paused = False
-    while not done:
-        clock.tick(FPS)
 
-        if not (paused or frame_clock % msec_to_frames(PipePair.ADD_INTERVAL)):
-            pp = PipePair(images['pipe-end'], images['pipe-body'])
-            pipes.append(pp)
 
-        for e in pygame.event.get():
-            if e.type == QUIT or (e.type == KEYUP and e.key == K_ESCAPE):
-                done = True
-                break
-            elif e.type == KEYUP and e.key in (K_PAUSE, K_p):
-                paused = not paused
-            elif e.type == MOUSEBUTTONUP or (e.type == KEYUP and
-                    e.key in (K_UP, K_RETURN, K_SPACE)):
-                bird.msec_to_climb = Bird.CLIMB_DURATION
 
-        if paused:
-            continue
-
-        pipe_collision = any(p.collides_with(bird) for p in pipes)
-        if pipe_collision or 0 >= bird.y or bird.y >= WIN_HEIGHT - Bird.HEIGHT:
-            done = True
-
-        for x in (0, WIN_WIDTH ):
-            display_surface.blit(images['background'], (x, 0))
-
-        while pipes and not pipes[0].visible:
-            pipes.popleft()
-
-        for p in pipes:
-            p.update()
-            display_surface.blit(p.image, p.rect)
-
-        bird.update()
-        display_surface.blit(bird.image, bird.rect)
-
-        for p in pipes:
-            if p.x + PipePair.WIDTH < bird.x and not p.score_counted:
-                score += 1
-                p.score_counted = True
-
-        score_surface = score_font.render(str(score), True, (255, 255, 255))
-        score_x = WIN_WIDTH/2 - score_surface.get_width()/2
-        display_surface.blit(score_surface, (score_x, PipePair.PIECE_HEIGHT))
-
-        pygame.display.flip()
-        frame_clock += 1
-    print('Game over! Score: %i' % score)
     pygame.quit()
 
 
