@@ -104,12 +104,12 @@ class Window(object):
         Tub_5_larg = 50
         Tub_5_haut = haut
         # code sixième pipe
-        Tub_6x = Tub_6x + esp_tube
+        Tub_6x = Tub_5x + esp_tube
         Tub_6y = 380
         Tub_6_larg = 50
         Tub_6_haut = haut
         # code septièmes pipe
-        Tub_7x = Tub_7x + esp_tube
+        Tub_7x = Tub_6x + esp_tube
         Tub_7y = 380
         Tub_7_larg = 50
         Tub_7_haut = haut
