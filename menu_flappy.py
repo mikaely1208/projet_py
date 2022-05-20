@@ -30,8 +30,8 @@ class Menu:
                                                    text='Pro',
                                                    manager=manager)
 
-        free_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((150, 250), (250, 125)),
-                                                    text='Free level',
+        Train_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((150, 250), (250, 125)),
+                                                    text='Training',
                                                     manager=manager)
 
 
@@ -54,7 +54,7 @@ class Menu:
 
 
                 if event.type == pygame_gui.UI_BUTTON_PRESSED:
-                    if event.ui_element == free_button:
+                    if event.ui_element == Train_button:
 
 
                 if event.type == pygame_gui.UI_BUTTON_PRESSED:

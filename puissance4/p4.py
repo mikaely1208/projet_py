@@ -28,7 +28,7 @@ def choix_col(x,y):
     # Cette fonction retourne la colonne demandee au joueur1
     # Tant que la valeur n'est pas acceptable, on demande la colonne a jouer
     col = x-16
-    col = abs(col/97) 
+    col = int(col/97)
     if col in range(0, 7):
             if (Gr[5][col] == 0):
                Puissance4=False
@@ -44,7 +44,7 @@ def verification_Puissance4():
     while (not (i == 5 and j == 3)):
         if (Gr[i][j] == Gr[i][j + 1] and Gr[i][j] == Gr[i][j + 2]
                 and Gr[i][j] == Gr[i][j + 3] and Gr[i][j] == joueur):
-            test2 = True
+            Puissance42 = True
         if (j == 3):
             i = i + 1
             j = 0
@@ -81,14 +81,14 @@ def verification_Puissance4():
     while (not (i == 2 and j == 6)):
         if (Gr[i][j] == Gr[i + 1][j - 1] and Gr[i][j] == Gr[i + 2][j - 2]
                 and Gr[i][j] == Gr[i + 3][j - 3] and Gr[i][j] == joueur):
-            test2 = True
+            Puissance42 = True
         if (j == 6):
             i = i + 1
             j = 3
         else:
             j = j + 1
 
-    return test2
+    return Puissance42
 
 
 
