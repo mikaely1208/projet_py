@@ -32,7 +32,6 @@ class Flappy(object):
         self.y = y
         self.larg = larg
         self.haut = haut
-
     def draw(self):
             pygame.draw.rect(screen, player, (self.x, self.y, self.larg, self.haut))
 
@@ -78,6 +77,14 @@ class Window(object):
         moov_Y_heros = 0
         esp_tube =  150
         vit_tube = 2.5
+        score = 0
+
+
+        if (esp == 150):
+            score + 1
+            esp = 0
+
+        print (score)
 
         #code premier pipe
         esp = 150
