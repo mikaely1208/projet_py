@@ -14,6 +14,8 @@ clock = pygame.time.Clock()
 
 
 
+
+
 # Def des différentes couleurs des tubes + heros, fond etc ...
 #fond = pygame.image.load("images/background.jpg")
 blanc = (255, 255, 255)
@@ -180,7 +182,6 @@ class Window(object):
                     print("perdu")
                     break  # on break la loop pour collision signe de fin du jeu
                     exit(0)
-
 
             pygame.display.update()
             clock.tick(FPS)
