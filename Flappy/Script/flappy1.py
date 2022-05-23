@@ -19,6 +19,8 @@ rouge = (248, 51, 60)
 jaune = (252, 171, 16)
 violet = (151, 40, 199)
 vert = (130, 255, 158)
+noir = (0, 0, 0)
+player = (186,255,41)
 FPS = 60
 
 class Flappy(object):
@@ -29,7 +31,7 @@ class Flappy(object):
         self.haut = haut
 
     def draw(self):
-            pygame.draw.rect(screen, rouge, (self.x, self.y, self.larg, self.haut))
+            pygame.draw.rect(screen, player, (self.x, self.y, self.larg, self.haut))
 
 class Tubes(object):
     def __init__(self, x, y, larg, haut, esp, vit, couleur):
@@ -180,7 +182,7 @@ class Window(object):
 
             pygame.display.update()
             clock.tick(FPS)
-            screen.fill(blanc)
+            screen.fill(noir)
 
 
 Window(larg, haut)
