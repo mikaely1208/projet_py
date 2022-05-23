@@ -4,6 +4,7 @@ from pygame.locals import *
 pygame.init()
 
 #Taille ecran,time etc
+pygame.display.set_caption('Tight as sardines')
 larg = 700
 haut = 500
 FPS = 60

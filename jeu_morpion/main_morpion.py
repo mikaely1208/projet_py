@@ -145,13 +145,13 @@ class Jeu :
 
                 if liste_lignes_X.count(0) == 3 or liste_lignes_X.count(1) == 3 or liste_lignes_X.count(2) == 3 :
                     print('X a win')
-                    break
+                    #break
                 if liste_colonnes_X.count(0) == 3 or liste_colonnes_X.count(1) == 3 or liste_colonnes_X.count(2) == 3 :
                     print('X a win')
-                    break
+                    #break
                 if liste_lignes_X == liste_colonnes_X or liste_lignes_X == liste_colonnes_X[::-1]: #[::-1] signifie à l'envers
                     print('X a win')
-                    break
+                    #break
 
             if len(liste_O) >=3 :
                 for (ligne,colonne) in liste_O :
@@ -160,13 +160,13 @@ class Jeu :
 
                 if liste_lignes_O.count(0) == 3 or liste_lignes_O.count(1) == 3 or liste_lignes_O.count(2) == 3 :
                     print('O a win')
-                    break
+                    #break
                 if liste_colonnes_O.count(0) == 3 or liste_colonnes_O.count(1) == 3 or liste_colonnes_O.count(2) == 3 :
                     print('O a win')
-                    break
+                    #break
                 if liste_lignes_O == liste_colonnes_O or liste_lignes_O == liste_colonnes_O[::-1]: #[::-1] signifie à l'envers
                     print('O a win')
-                    break
+                    #break
 
             #print(self.compteur)
             #self.grille.print_grille()

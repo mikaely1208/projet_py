@@ -1,8 +1,6 @@
 import sys
-
 import pygame
 import pygame_gui
-
 
 
 class Menu:
@@ -13,25 +11,26 @@ class Menu:
         pygame.display.set_caption('Flappy Bird')
         window_surface = pygame.display.set_mode((880, 450))
         background = pygame.Surface((1900, 1080))
-        background.fill(pygame.Color('Blue'))
+        background.fill(pygame.Color('Beige'))
         manager = pygame_gui.UIManager((1915, 1028))
 
         # creation des bouttons :
 
-        Debutant_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((150, 30), (250, 125)),
-                                                      text='Debutant',
+        Precision_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((150, 30), (250, 125)),
+                                                      text='Precision over all',
                                                       manager=manager)
 
-        Amateur_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((500, 30), (250, 125)),
-                                                   text='Amateur',
+        Serre_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((500, 30), (250, 125)),
+                                                   text='Tight as sardines',
                                                    manager=manager)
+
+
+        Vitesse_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((150, 250), (250, 125)),
+                                                    text='Faster than ever',
+                                                    manager=manager)
 
         Train_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((500, 250), (250, 125)),
-                                                   text='Training',
-                                                   manager=manager)
-
-        Pro_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((150, 250), (250, 125)),
-                                                    text='Pro',
+                                                    text='Training',
                                                     manager=manager)
 
 
@@ -46,18 +45,18 @@ class Menu:
                     pygame.quit()
 
                 if event.type == pygame_gui.UI_BUTTON_PRESSED:
-                    if event.ui_element == Debutant_button:
+                    if event.ui_element == Precision_button:
                         from flappy.Script.flappy1 import flappy1
 
 
 
                 if event.type == pygame_gui.UI_BUTTON_PRESSED:
-                    if event.ui_element == Amateur_button:
+                    if event.ui_element == Serre_button:
                         from flappy.Script.flappy2 import flappy2
 
 
                 if event.type == pygame_gui.UI_BUTTON_PRESSED:
-                    if event.ui_element == Pro_button:
+                    if event.ui_element == Vitesse_button:
                         from flappy.Script.flappy3 import flappy3
 
 

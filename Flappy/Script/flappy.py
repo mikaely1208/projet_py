@@ -13,7 +13,7 @@ clock = pygame.time.Clock()
 
 
 # Def des différentes couleurs des tubes + heros, fond etc ...
-#fond = pygame.image.load("images/background.jpg")
+# fond = pygame.image.load("images/background.jpg")
 white = (255, 255, 255)
 red = (248, 51, 60)
 yellow = (252, 171, 16)

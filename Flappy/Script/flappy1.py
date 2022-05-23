@@ -1,9 +1,11 @@
-import pygame
 import sys
 from pygame.locals import *
+import pygame
+
 pygame.init()
 
 #Taille ecran,time etc
+pygame.display.set_caption('Precision over all')
 larg = 700
 haut = 500
 FPS = 60
@@ -104,7 +106,7 @@ class Window(object):
         Tube4 = Tubes(Tub_4x, Tub_4y, Tub_4_larg, Tub_4_haut, esp, vit_tube, vert)
 
 
-       #definir les touches quitter jeux et monter
+    # definir les touches quitter jeux et monter
         while loop:
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
@@ -117,7 +119,7 @@ class Window(object):
 
                 if event.type == pygame.QUIT:
                     pygame.quit()
-                    quit()
+                    #quit()
 
             self.X_heros += moov_X_heros
             self.Y_heros += moov_Y_heros
