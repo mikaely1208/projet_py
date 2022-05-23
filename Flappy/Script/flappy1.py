@@ -19,7 +19,6 @@ rouge = (248, 51, 60)
 jaune = (252, 171, 16)
 violet = (151, 40, 199)
 vert = (130, 255, 158)
-rose = (229, 99, 153)
 FPS = 60
 
 class Flappy(object):
@@ -76,31 +75,26 @@ class Window(object):
         vit_tube = 1.5
 
         #code premier pipe
-        esp = 200
+        esp = 80
         Tub_1x = 500
         Tub_1y = 350
         Tub_1_larg = 50
         Tub_1_haut = haut
         # code second pipe
         Tub_2x = Tub_1x + esp_tube
-        Tub_2y = 390
+        Tub_2y = 470
         Tub_2_larg = 50
         Tub_2_haut = haut
         # code troisième pipe
         Tub_3x = Tub_2x + esp_tube
-        Tub_3y = 380
+        Tub_3y = 220
         Tub_3_larg = 50
         Tub_3_haut = haut
         # code quatrièmes pipe
         Tub_4x = Tub_3x + esp_tube
-        Tub_4y = 380
+        Tub_4y = 120
         Tub_4_larg = 50
         Tub_4_haut = haut
-        # code cinquièmes pipe
-        Tub_5x = Tub_4x + esp_tube
-        Tub_5y = 380
-        Tub_5_larg = 50
-        Tub_5_haut = haut
 
 
         #on ajoute les coordonnés + L'espace entre eux + Rapidité + couleurs
@@ -108,7 +102,7 @@ class Window(object):
         Tube2 = Tubes(Tub_2x, Tub_2y, Tub_2_larg, Tub_2_haut, esp, vit_tube, jaune)
         Tube3 = Tubes(Tub_3x, Tub_3y, Tub_3_larg, Tub_3_haut, esp, vit_tube, violet)
         Tube4 = Tubes(Tub_4x, Tub_4y, Tub_4_larg, Tub_4_haut, esp, vit_tube, vert)
-        Tube5 = Tubes(Tub_5x, Tub_5y, Tub_5_larg, Tub_5_haut, esp, vit_tube, rose)
+
 
        #definir les touches quitter jeux et monter
         while loop:
@@ -134,21 +128,21 @@ class Window(object):
             Tube2.draw_tubes()
             Tube3.draw_tubes()
             Tube4.draw_tubes()
-            Tube5.draw_tubes()
+
 
 
             Tube1.verif()
             Tube2.verif()
             Tube3.verif()
             Tube4.verif()
-            Tube5.verif()
+
 
 
             new_Tub_1x = Tube1.moov_tubes()
             new_Tub_2x = Tube2.moov_tubes()
             new_Tub_3x = Tube3.moov_tubes()
             new_Tub_4x = Tube4.moov_tubes()
-            new_Tub_5x = Tube5.moov_tubes()
+
 
             if (self.Y_heros >= (Tub_1y - esp)) and (self.Y_heros >= Tub_1y) and ((self.X_heros + larg_heros) >= new_Tub_1x) and (self.X_heros <= (new_Tub_1x + Tub_1_larg)):
                     print("perdu")
@@ -179,14 +173,6 @@ class Window(object):
                     break  # on break la loop pour collision signe de fin du jeu
                     exit(0)
             if (self.Y_heros <= (Tub_4y - esp)) and (self.Y_heros <= Tub_4y) and ((self.X_heros + larg_heros) >= new_Tub_4x) and (self.X_heros <= (new_Tub_4x + Tub_4_larg)):
-                    print("perdu")
-                    break  # on break la loop pour collision signe de fin du jeu
-                    exit(0)
-            if (self.Y_heros >= (Tub_5y - esp)) and (self.Y_heros >= Tub_5y) and ((self.X_heros + larg_heros) >= new_Tub_5x) and (self.X_heros <= (new_Tub_5x + Tub_5_larg)):
-                    print("perdu")
-                    break  # on break la loop pour collision signe de fin du jeu
-                    exit(0)
-            if (self.Y_heros <= (Tub_5y - esp)) and (self.Y_heros <= Tub_5y) and ((self.X_heros + larg_heros) >= new_Tub_5x) and (self.X_heros <= (new_Tub_5x + Tub_5_larg)):
                     print("perdu")
                     break  # on break la loop pour collision signe de fin du jeu
                     exit(0)
