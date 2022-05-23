@@ -77,7 +77,7 @@ class Window(object):
         vit_tube = 8
 
         #code premier pipe
-        esp = 200
+        esp = 175
         Tub_1x = 500
         Tub_1y = 350
         Tub_1_larg = 30
