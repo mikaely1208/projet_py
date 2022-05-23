@@ -74,7 +74,7 @@ class Window(object):
         self.Y_heros = ((haut / 2) - int(haut_heros / 2.0))
         moov_X_heros = 0
         moov_Y_heros = 0
-        esp_tube = 250
+        esp_tube =  225
         vit_tube = 2.5
 
         #code premier pipe
@@ -84,33 +84,33 @@ class Window(object):
         Tub_1_larg = 50
         Tub_1_haut = haut
         # code second pipe
-        Tub_2x = Tub_1x + esp_tube
+        Tub_2x = Tub_1x + esp
         Tub_2y = 259
         Tub_2_larg = 50
         Tub_2_haut = haut
         # code troisième pipe
-        Tub_3x = Tub_2x + esp_tube
-        Tub_3y = 510
+        Tub_3x = Tub_2x + esp
+        Tub_3y = 500
         Tub_3_larg = 50
         Tub_3_haut = haut
         # code quatrièmes pipe
-        Tub_4x = Tub_3x + esp_tube
+        Tub_4x = Tub_3x + esp
         Tub_4y = 390
         Tub_4_larg = 50
         Tub_4_haut = haut
         # code cinquièmes pipe
-        Tub_5x = Tub_4x + esp_tube
-        Tub_5y = 380
+        Tub_5x = Tub_4x + esp
+        Tub_5y = 290
         Tub_5_larg = 50
         Tub_5_haut = haut
         # code sixième pipe
-        Tub_6x = Tub_5x + esp_tube
-        Tub_6y = 500
+        Tub_6x = Tub_5x + esp
+        Tub_6y = 520
         Tub_6_larg = 50
         Tub_6_haut = haut
         # code septièmes pipe
-        Tub_7x = Tub_6x + esp_tube
-        Tub_7y = 400
+        Tub_7x = Tub_6x + esp
+        Tub_7y = 320
         Tub_7_larg = 50
         Tub_7_haut = haut
 
