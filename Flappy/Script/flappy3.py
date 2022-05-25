@@ -1,5 +1,6 @@
 import pygame
 import sys
+import pygame as pg
 from pygame.locals import *
 pygame.init()
 
@@ -79,6 +80,12 @@ class Window(object):
         moov_Y_heros = 0
         esp_tube = 220
         vit_tube = 8
+        pg.init()
+        font = pg.font.Font(None, 40)
+        gray = pg.Color('blue')
+        blue = pg.Color('blue')
+        timer = 0
+        dt = 0  # time dernier tick
 
         #code premier pipe
         esp = 175
@@ -130,7 +137,9 @@ class Window(object):
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     quit()
-
+            timer += dt
+            if timer >= 100000000000000000000000:
+                timer = 0  # Reset it to 10 or do something else.
             self.X_heros += moov_X_heros
             self.Y_heros += moov_Y_heros
             heros = Flappy(self.X_heros, self.Y_heros, larg_heros, haut_heros)
@@ -149,6 +158,11 @@ class Window(object):
             Tube4.verif()
             Tube5.verif()
 
+            txt = font.render(str(round(timer, 2)), True, blue)
+            screen.blit(txt, (70, 70))
+            pg.display.flip()
+            dt = clock.tick(0)  # /1000 to convert to seconds.
+
 
 
 
@@ -162,42 +176,52 @@ class Window(object):
 
             if (self.Y_heros >= (Tub_1y - esp)) and (self.Y_heros >= Tub_1y) and ((self.X_heros + larg_heros) >= new_Tub_1x) and (self.X_heros <= (new_Tub_1x + Tub_1_larg)):
                     print("perdu")
+                    print(timer)
                     break  # on break la loop pour collision signe de fin du jeu
                     exit(0)
             if (self.Y_heros <= (Tub_1y - esp)) and (self.Y_heros <= Tub_1y) and ((self.X_heros + larg_heros) >= new_Tub_1x) and (self.X_heros <= (new_Tub_1x + Tub_1_larg)):
                     print("perdu")
+                    print(timer)
                     break  # on break la loop pour collision signe de fin du jeu
                     exit(0)
             if (self.Y_heros <= (Tub_2y - esp)) and (self.Y_heros <= Tub_2y) and ((self.X_heros + larg_heros) >= new_Tub_2x) and (self.X_heros <= (new_Tub_2x + Tub_2_larg)):
                     print("perdu")
+                    print(timer)
                     break  # on break la loop pour collision signe de fin du jeu
                     exit(0)
             if (self.Y_heros >= (Tub_2y - esp)) and (self.Y_heros >= Tub_2y) and ((self.X_heros + larg_heros) >= new_Tub_2x) and (self.X_heros <= (new_Tub_2x + Tub_2_larg)):
                     print("perdu")
+                    print(timer)
                     break  # on break la loop pour collision signe de fin du jeu
                     exit(0)
             if (self.Y_heros >= (Tub_3y - esp)) and (self.Y_heros >= Tub_3y) and ((self.X_heros + larg_heros) >= new_Tub_3x) and (self.X_heros <= (new_Tub_3x + Tub_3_larg)):
                     print("perdu")
+                    print(timer)
                     break  # on break la loop pour collision signe de fin du jeu
                     exit(0)
             if (self.Y_heros <= (Tub_3y - esp)) and (self.Y_heros <= Tub_3y) and ((self.X_heros + larg_heros) >= new_Tub_3x) and (self.X_heros <= (new_Tub_3x + Tub_3_larg)):
                     print("perdu")
+                    print(timer)
                     break  # on break la loop pour collision signe de fin du jeu
                     exit(0)
             if (self.Y_heros >= (Tub_4y - esp)) and (self.Y_heros >= Tub_4y) and ((self.X_heros + larg_heros) >= new_Tub_4x) and (self.X_heros <= (new_Tub_4x + Tub_4_larg)):
                     print("perdu")
+                    print(timer)
                     break  # on break la loop pour collision signe de fin du jeu
                     exit(0)
             if (self.Y_heros <= (Tub_4y - esp)) and (self.Y_heros <= Tub_4y) and ((self.X_heros + larg_heros) >= new_Tub_4x) and (self.X_heros <= (new_Tub_4x + Tub_4_larg)):
                     print("perdu")
+                    print(timer)
                     break  # on break la loop pour collision signe de fin du jeu
                     exit(0)
             if (self.Y_heros >= (Tub_5y - esp)) and (self.Y_heros >= Tub_5y) and ((self.X_heros + larg_heros) >= new_Tub_5x) and (self.X_heros <= (new_Tub_5x + Tub_5_larg)):
                     print("perdu")
+                    print(timer)
                     break  # on break la loop pour collision signe de fin du jeu
                     exit(0)
             if (self.Y_heros <= (Tub_5y - esp)) and (self.Y_heros <= Tub_5y) and ((self.X_heros + larg_heros) >= new_Tub_5x) and (self.X_heros <= (new_Tub_5x + Tub_5_larg)):
                     print("perdu")
+                    print(timer)
                     break  # on break la loop pour collision signe de fin du jeu
                     exit(0)
 
