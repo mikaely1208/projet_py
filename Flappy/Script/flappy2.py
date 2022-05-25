@@ -1,3 +1,4 @@
+import os
 import pygame
 import sys
 from pygame.locals import *
@@ -5,16 +6,17 @@ pygame.init()
 
 #Taille ecran,time etc
 pygame.display.set_caption('Tight as sardines')
-larg = 700
-haut = 500
+#larg = 700
+#haut = 500
+larg = 880
+haut = 450
 FPS = 60
 screen = pygame.display.set_mode((larg, haut))
 clock = pygame.time.Clock()
 
 
 
-# Def des différentes couleurs des tubes + heros, fond etc ...
-#fond = pygame.image.load("images/background.jpg")
+# Def des différentes couleurs des tubes + heros, fond etc...
 blanc = (255, 255, 255)
 rouge = (248, 51, 60)
 jaune = (252, 171, 16)

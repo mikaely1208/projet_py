@@ -31,7 +31,7 @@ class Menu:
                                                     manager=manager)
 
         Train_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((500, 250), (250, 125)),
-                                                    text='Training',
+                                                    text='Improve yourself',
                                                     manager=manager)
 
 
@@ -47,24 +47,24 @@ class Menu:
 
                 if event.type == pygame_gui.UI_BUTTON_PRESSED:
                     if event.ui_element == Precision_button:
-                        from flappy.Script.flappy1 import flappy1
+                        from flappy.Script.flappy1 import Window
 
 
 
                 if event.type == pygame_gui.UI_BUTTON_PRESSED:
                     if event.ui_element == Serre_button:
-                        from flappy.Script.flappy2 import flappy2
+                        from flappy.Script.flappy2 import Window
 
 
                 if event.type == pygame_gui.UI_BUTTON_PRESSED:
                     if event.ui_element == Vitesse_button:
-                        from flappy.Script.flappy3 import flappy3
+                        from flappy.Script.flappy3 import Window
 
 
 
                 if event.type == pygame_gui.UI_BUTTON_PRESSED:
                     if event.ui_element == Train_button:
-                        from flappy.Script.flappy import flappy
+                        from flappy.Script.flappy import Window
 
 
 

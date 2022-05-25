@@ -78,10 +78,9 @@ class Jeu :
 
                 self.creer_message('grande', 'Morpion X/O', (0, 0, 0),[200,30,2000,50])
 
-                self.creer_message('petite', 'Ce jeu se joue à deux et chacun aura son symbole', (0, 0, 0), [50, 130, 400, 50])
-                self.creer_message('petite', 'X ou O', (0, 0, 0), [220, 150, 100, 100])
-                self.creer_message('petite', 'Le premier joueur qui aligne trois de ses symboles gagne', (0, 0, 0), [50, 170, 200, 50])
-
+                self.creer_message('petite', 'Ce jeu se joue à deux et chacun aura son symbole', (0, 0, 0), [150, 130, 400, 50])
+                self.creer_message('petite', 'X ou O', (0, 0, 0), [280, 150, 100, 100])
+                self.creer_message('petite', 'Le premier joueur qui aligne trois de ses symboles gagne', (0, 0, 0), [130, 170, 200, 50])
                 self.creer_message('moyenne', 'Pour restart le jeu, appuyer sur Entrée', (0, 0, 0,), [70, 350, 200, 50])
                 self.creer_message('moyenne', 'Pour commencer le jeu, appuyer sur Espace', (0, 0, 0,), [70, 400, 200, 50])
                 self.creer_message('moyenne', 'Pour revenir à cette page, appuyer sur Echap', (0, 0, 0,), [70, 450, 200, 50])
