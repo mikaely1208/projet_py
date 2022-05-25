@@ -84,8 +84,6 @@ class Window(object):
         moov_Y_heros = 0
         esp_tube =  150
         vit_tube = 2.5
-        score = 0
-
         pg.init()
         font = pg.font.Font(None, 40)
         gray = pg.Color('blue')
