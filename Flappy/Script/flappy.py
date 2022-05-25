@@ -4,8 +4,11 @@ from pygame.locals import *
 pygame.init()
 
 #Taille ecran,time etc
-larg = 700
-haut = 500
+pygame.display.set_caption('Improve yourself')
+#larg = 700
+#haut = 500
+larg = 880
+haut = 450
 FPS = 60
 screen = pygame.display.set_mode((larg, haut))
 clock = pygame.time.Clock()

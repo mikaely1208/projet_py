@@ -74,6 +74,7 @@ class Jeu :
                         if event.key == pygame.K_SPACE:
                             self.ecran_debut = False
 
+
                 self.ecran.fill((205, 145, 158, 255))
 
                 self.creer_message('grande', 'Morpion X/O', (0, 0, 0),[200,30,2000,50])

@@ -5,8 +5,10 @@ pygame.init()
 
 #Taille ecran,time etc
 pygame.display.set_caption('Faster than ever')
-larg = 700
-haut = 500
+#larg = 700
+#haut = 500
+larg = 880
+haut = 450
 FPS = 60
 screen = pygame.display.set_mode((larg, haut))
 clock = pygame.time.Clock()
