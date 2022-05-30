@@ -1,6 +1,9 @@
 import pygame #bibli à favoriser pour faire un jeu
 import sys
 import pygame_gui
+from pygame.locals import *
+
+
 
 class Grille:
     def __init__(self,ecran):

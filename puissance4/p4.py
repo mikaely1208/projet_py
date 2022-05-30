@@ -1,6 +1,10 @@
 import pygame
 import sys
+from pygame.locals import *
+
+
 pygame.init()
+pygame.display.set_caption('Puissance 4')
 
 # def de la grille
 Gr = [[0, 0, 0, 0, 0, 0, 0],

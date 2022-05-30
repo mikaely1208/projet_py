@@ -1,6 +1,7 @@
 import sys
 import pygame
 import pygame_gui
+from pygame.locals import *
 
 
 

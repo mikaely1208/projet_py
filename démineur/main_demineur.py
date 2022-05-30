@@ -1,8 +1,10 @@
 import pygame
 import random
 import pygame_gui
-pygame.init()
+from pygame.locals import *
 
+
+pygame.init()
 bg_color = (192, 192, 192)
 grid_color = (128, 128, 128)
 
