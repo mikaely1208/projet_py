@@ -158,7 +158,7 @@ class Window(object):
 
             timer += dt
             if timer >= 100000000000000000000000:
-                timer = 0  # Reset it to 10 or do something else.
+                timer = 0
 
             self.X_heros += moov_X_heros
             self.Y_heros += moov_Y_heros

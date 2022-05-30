@@ -35,6 +35,7 @@ class Flappy(object):
     def draw(self):
             pygame.draw.rect(screen, player, (self.x, self.y, self.larg, self.haut))
 
+
 class Tubes(object):
     def __init__(self, x, y, larg, haut, esp, vit, couleur):
         self.x = x
@@ -134,9 +135,10 @@ class Window(object):
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     quit()
+
             timer += dt
             if timer >= 100000000000000000000000:
-                timer = 0  # Reset it to 10 or do something else.
+                timer = 0
             self.X_heros += moov_X_heros
             self.Y_heros += moov_Y_heros
             heros = Flappy(self.X_heros, self.Y_heros, larg_heros, haut_heros)
@@ -158,7 +160,7 @@ class Window(object):
             txt = font.render(str(round(timer, 2)), True, blue)
             screen.blit(txt, (70, 70))
             pg.display.flip()
-            dt = clock.tick(0)  # /1000 to convert to seconds.
+            dt = clock.tick(0)
 
 
 
