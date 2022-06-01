@@ -1,5 +1,6 @@
 import pygame, sys, time, random
 from pygame import freetype
+from pygame.locals import *
 
 pygame.init()
 
