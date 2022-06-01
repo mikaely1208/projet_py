@@ -6,7 +6,7 @@ from pygame.locals import *
 pygame.init()
 
 #Taille ecran,time etc
-pygame.display.set_caption('Tight as sardines')
+pygame.display.set_caption('flap')
 #larg = 700
 #haut = 500
 larg = 880
@@ -161,7 +161,7 @@ class Window(object):
 
             timer += dt
             if timer >= 100000000000000000000000:
-                timer = 0  # Reset it to 10 or do something else.
+                timer = 0
 
             self.X_heros += moov_X_heros
             self.Y_heros += moov_Y_heros

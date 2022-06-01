@@ -2,9 +2,8 @@ import pygame
 import sys
 import pygame as pg
 from pygame.locals import *
-
-
 pygame.init()
+
 #Taille ecran,time etc
 pygame.display.set_caption('Improve yourself')
 #larg = 700

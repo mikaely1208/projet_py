@@ -161,7 +161,7 @@ class Window(object):
             txt = font.render(str(round(timer, 2)), True, blue)
             screen.blit(txt, (70, 70))
             pg.display.flip()
-            dt = clock.tick(0)  # /1000 to convert to seconds.
+            dt = clock.tick(0)
 
 
 
