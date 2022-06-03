@@ -1,6 +1,10 @@
 import pygame, sys, time, random
 from pygame import freetype
 from pygame.locals import *
+from array import array
+from array import *
+
+
 
 #init tt les import et import from
 pygame.init()
