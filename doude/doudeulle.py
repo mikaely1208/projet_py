@@ -20,6 +20,27 @@ gameDisplay = pygame.display.set_mode((DisplayWidth,DisplayHeight))
 #créa nvl instance de police depuis fichier de police (font.ttf à dl)
 game_font = pygame.freetype.Font("Font.ttf", 24)
 
+def randomPlatform():
+    return [random.randint(150,450),0]
+
+def limites():
+    global Platforms
+    global gravity
+    global x
+    global y
+    global sautautorisé
+
+    stop = False
+
+    for platform in Platforms:
+        if x >= platform[0] - 50 and x <= platform[0] + 200 and platform[1] >= y + 35 and platform[1] <= y + 55:
+            if gravity != -20 and gravity >= 0:
+                y = platform[1] - 45
+                gravity = 0
+                stop = True
+                sautautorisé = True
+    if stop == False:
+        gravity += 1
 
 
 
