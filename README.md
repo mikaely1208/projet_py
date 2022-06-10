@@ -23,4 +23,8 @@ Git
 
 Stackoverflow
 
-# Git
+# Fonctionnement
+
+Lancer Menu.py et laissez vous guider !
+
+    
