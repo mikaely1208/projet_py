@@ -6,6 +6,7 @@ from pygame.locals import *
 
 
 
+
 class Menu:
 
     def fonction_Menu(self):
@@ -49,24 +50,24 @@ class Menu:
 
                 if event.type == pygame_gui.UI_BUTTON_PRESSED:
                     if event.ui_element == Precision_button:
-                        from flappy.Script.flappy1 import Window
+                        from Flappy.Script.flappy1 import Window
 
 
 
                 if event.type == pygame_gui.UI_BUTTON_PRESSED:
                     if event.ui_element == Serre_button:
-                        from flappy.Script.flappy2 import Window
+                        from Flappy.Script.flappy2 import Window
 
 
                 if event.type == pygame_gui.UI_BUTTON_PRESSED:
                     if event.ui_element == Vitesse_button:
-                        from flappy.Script.flappy3 import Window
+                        from Flappy.Script.flappy3 import Window
 
 
 
                 if event.type == pygame_gui.UI_BUTTON_PRESSED:
                     if event.ui_element == Train_button:
-                        from flappy.Script.flappy import Window
+                        from Flappy.Script.flappy import Window
 
 
 
